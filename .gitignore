@@ -1,7 +1,6 @@
 .gitignore
 *~
 #*
-*pdf
 *dvi
 *log
 *aux
