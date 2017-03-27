@@ -6,3 +6,6 @@
 *aux
 *latexmk
 gitrevision
+_minted-doc/
+*.fls
+*.pyg
