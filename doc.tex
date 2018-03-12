@@ -96,123 +96,14 @@
 
 
 
-%\includeonly{urd}
+\includeonly{method}
 
 
 \begin{document}
 
-\begin{center}
-  \vspace*{1.0cm}
-  {\Huge The Accelerator}\\[0.7cm]
-  {\Large User's Reference}
-  \vspace{1.3cm}
-  \begin{figure}[h]
-    \centering
-    \includegraphics[width=11cm]{odhner_square.jpg}
-  \end{figure}
-  \vfill
-  {\tiny{version: \inputfile{gitrevision}}}\\
-  {\footnotesize Anders Berkeman, Carl Drougge, and Sofia H\"orberg}
-\end{center}
-\thispagestyle{empty}
-
-\newpage
-
-
-%\tableofcontents
-
-
-\section*{Glossary}
-
-% \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l}
-\begin{tabular*}{\textwidth}{ll}
-automata  & a script run by urd dispatching or recalling jobs\\
-chain     & a one-directional list of datasets\\
-dataset   & efficient storage of data\\
-job       & a running or completed method\\
-jobid     & a link to a successfully completed method\\
-method    & main source file of program to be executed by framework\\
-package   & a location where methods are stored\\
-urd       & dispatcher and job database\\
-workdir   & a location where job data and metadata is stored\\
-\end{tabular*}
-
-
-\chapter{Introduction}
-\include{introduction}
-
-
-
-
-
-% \newpage
-% Here is a list of some of the background ideas that coloured the work
-% on the Accelerator.
-% \begin{itemize}
-
-% \item{parallel processing}
-  
-% \item \textbf{Data, recipies (code), and computation} - Data and code
-%   is more important than computation.  If data integrity is
-%   maintained, and code version controlled, computation is repeatable
-%   and can be replicated.
-
-% \item \textbf{Never delete or change input data} - What is saved by
-%   freed storage is nothing compared to the cost of loss of history:
-%   replication becomes impossible, as well as certain analyses.
-
-% \item \textbf{Data should be accessable with minimum overhead}
-
-% \item \textbf{Appending columns and rows should have minimal overhead.}
-
-% \item \textbf{Live and dev environment is equivalent}
-% \item \textbf{ blah - analysis and production same blah@@@}
-  
-% \item \textbf{Bookkeep intermediate results.  Use it --- don't recompute!}
-
-% \item \textbf{client server configuration}
-
-% \item \textbf{simplicity} use basic file systems, and simple,
-%   minimalistic programs.  (Maintainability, stability, observability,
-%   and speed).  Adding layers and applications slows things down.
-
-% \item \textbf{Moore's law and bottlenecks} CPU, memory size, and disk
-%   storage increase exponentionally over time for constant price.
-%   Interconnection speed does not.  Avoid bottlenecks!
-
-% \item \textbf{Avoid clusters} Are clusters for speed or redundancy?
-%   How many machines does a cluster need to have to par a single
-%   machine with data and code stored locally?
-% \end{itemize}
-
-
-
-
-\chapter{Overview}
-\include{concepts}
-
-\chapter{High Level Control:  Urd}
-\include{urd}
 
 \chapter{Method}
 \include{method}
-
-\chapter{Dataset}
-\include{dataset}
-
-\chapter{Iterator}
-\include{iterator}
-
-\chapter{Standard Methods}
-The Accelerator is shipped with a set of common standard methods.
-These are found in the directory \texttt{./standard\_methods}.
-\include{standard_methods}
-
-\chapter{Command Line Tools}
-\include{tools}
-
-%\chapter{habitatiii}
-%\include{habitatiii}
 
 \end{document}
 
