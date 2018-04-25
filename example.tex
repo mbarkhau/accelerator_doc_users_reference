@@ -1,0 +1,49 @@
+1. Create a method directory \texttt{example} in parallel to the
+\texttt{accelerator} directory.
+
+2. create the two files shown below inside the example directory
+
+3. add \texttt{example} to conf/framework.conf
+
+4. touch example/__init__.py
+
+5. create example/method.conf with this line
+\texttt{example_create_dataset   py3}
+
+6. in one shell, cd into accelerator and type ./daemon.py
+
+7. in another shell cd into accelerator and type ./automatarunner example
+
+
+
+a_example_create_dataset.py:
+\begin{python}
+ from random import uniform, randint
+
+ from dataset import DatasetWriter
+
+options = dict(
+    N=10000,
+    randint_low = -1000,
+    randint_high = 1000,
+)
+
+ def prepare():
+    dw = DatasetWriter()
+    dw.add('rflt', 'float64')
+    dw.add('rint', 'int64')
+    return dw
+
+def analysis(sliceno, prepare_res, params):
+    dw = prepare_res
+    for n in range(0, options.N // params.slices):
+        dw.write(uniform(0, 1), randint(options.randint_low, options.randint_high))
+\end{python}
+
+
+automata_example:
+\begin{python}
+def main(urd):
+    jid_ds = urd.build('example_create_dataset', options=dict(N=100000))
+    urd.build('csvexport', datasets=dict(source=jid_ds), options=dict(filename='random.tsv', separator='\t'))
+\end{python}
