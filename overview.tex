@@ -236,7 +236,7 @@ seed, the hash of the source code, and method execution start time.
 The \texttt{jobids} parameter is a set containing any number of input
 jobids.  For example
 \begin{python}
-jobid = {'sales_stats', 'overhead_stats',}
+jobids = {'sales_stats', 'overhead_stats',}
 \end{python}
 When a method is to be executed, actual links to jobs, i.e.\ jobids,
 are passed using these parameters.
@@ -247,7 +247,7 @@ Options are supplied as a dictionary and is very flexible in typing.  For exampl
 \begin{python}
 options = dict(
     name = 'alice',
-    defaultnames = set('alice', 'bob'),
+    defaultnames = set(['alice', 'bob']),
     param1 = 1,
     param2 = float,
 )
@@ -316,8 +316,8 @@ too.
 
 \subsection{Linking Datasets, Chaining}
 
-Just like jobs can be linked to eachother, datasets can link to
-eachother too.  Since datasets are build on top of jobs, this is
+Just like jobs can be linked to each other, datasets can link to
+each other too.  Since datasets are build on top of jobs, this is
 straightforward.  Assume that we've just imported \texttt{file0.txt}
 into \texttt{imp-0/default} and that there is more data like it stored
 in \texttt{file1.txt}.  We can import the latter file and supply a
